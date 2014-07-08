@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * tio2 will run tests written as normal mocha specs in a Titanium app. 
+ * tio2 will run tests written as normal mocha specs in a Titanium app.
  * these tests then are run on device or simulator and collected and sent back to the CLI.
  *
  * See LICENSE for information and copyright.
@@ -185,7 +185,7 @@ var version = tiapp.sdkVersion,
 for (var c=0;c<target_names.length;c++) {
 	var target = target_names[c],
 		enabled = targets[target];
-	
+
 	if (platform===target && !enabled) {
 		die("tiapp.xml is not configured to support the platform '"+platform+"'");
 	}
@@ -222,10 +222,12 @@ var platform_ios = /(iphone|ipad|ios)/i.test(platform),
 	module_dest;
 
 // Check for existence of platform-specific app.js
-if (fs.existsSync( path.join(resource_dir,platform,'app.js')))
+if (fs.existsSync( path.join(resource_dir,platform,'app.js'))) {
 	 dest_appjs = path.join(resource_dir,platform,'app.js');
-else
+}
+else {
 	 dest_appjs = path.join(resource_dir,'app.js');
+}
 
 fs.copySync(timocha, dest_timocha);
 fs.copySync(should, dest_should);
@@ -364,7 +366,7 @@ function runTest (callback) {
 					return next("incorrect target");
 				}
 			}
-			
+
 			var xcodebuild_dir = path.join(build_dir,'build','iphone','build','Debug-'+name);
 			xcodebuild_dir = path.join(xcodebuild_dir,fs.readdirSync(xcodebuild_dir).filter(function(n) { return path.extname(n)=='.app'; } )[0]);
 
@@ -386,7 +388,7 @@ function runTest (callback) {
 
 			var config = {
 				apk: apk,
-				name: name, 
+				name: name,
 				appid: tiapp.id,
 				target: program.target,
 				unit: true,
@@ -490,7 +492,7 @@ specfiles.forEach(function(fn){
 // append the end
 code+=
 	'\nvar $results = [];'+
-	// add a special mocha reporter that will time each test run using 
+	// add a special mocha reporter that will time each test run using
 	// our microsecond timer
 	'\nfunction $Reporter(runner){' +
 	'\n\tvar started, title;'+
@@ -562,4 +564,3 @@ function exit() {
 
 // run our tests in series and then shutdown
 async.waterfall(tasks,shutdown);
-
