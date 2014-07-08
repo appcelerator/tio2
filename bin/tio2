@@ -219,7 +219,6 @@ var platform_ios = /(iphone|ipad|ios)/i.test(platform),
 	// files we're going to shuffle
 	dest_timocha = path.join(resource_dir,'ti-mocha.js'),
 	dest_should = path.join(resource_dir,'should.js'),
-	dest_appjs = path.join(resource_dir,'app.js'),
 	module_dest;
 
 // Check for existence of platform-specific app.js
