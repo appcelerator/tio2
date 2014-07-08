@@ -222,6 +222,12 @@ var platform_ios = /(iphone|ipad|ios)/i.test(platform),
 	dest_appjs = path.join(resource_dir,'app.js'),
 	module_dest;
 
+// Check for existence of platform-specific app.js
+if (fs.existsSync( path.join(resource_dir,platform,'app.js')))
+	 dest_appjs = path.join(resource_dir,platform,'app.js');
+else
+	 dest_appjs = path.join(resource_dir,'app.js');
+
 fs.copySync(timocha, dest_timocha);
 fs.copySync(should, dest_should);
 
