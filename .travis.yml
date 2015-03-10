@@ -31,8 +31,9 @@ install:
  - echo yes | android -s update sdk --no-ui --all --filter extra-android-support 
  - echo yes | android -s update sdk --no-ui --all --filter android-19
  - echo yes | android -s update sdk --no-ui --all --filter addon-google_apis-google-19
-
- - echo no | android create avd --force -n test -t android-19 --abi armeabi-v7a
+ - android list targets
+ - echo no | android create avd --force -n test -t android-19 --abi google_apis/armeabi-v7a
+ 
  - emulator -avd test -no-skin -no-audio -no-window &
  - android-wait-for-emulator
  - adb shell input keyevent 82 &
