@@ -34,6 +34,8 @@ install:
  - echo yes | android -s update sdk --no-ui --all --filter sys-img-armeabi-v7a-android-19
  - android list targets
  - echo no | android create avd --force -n test -t android-19 --abi default/armeabi-v7a
+
+ - cd $TRAVIS_BUILD_DIR
  
  - emulator -avd test -no-skin -no-audio -no-window &
  - curl -o android_wait_for_emulator.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/android_wait_for_emulator.sh
