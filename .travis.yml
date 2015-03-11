@@ -15,8 +15,8 @@ install:
  - mkdir -p "$TITANIUM_ROOT/sdks/"
 
  - cd "$TITANIUM_ROOT/sdks/"
- - wget http://dl.google.com/android/android-sdk_r23.0.2-macosx.zip
- - unzip -qq -o android-sdk_r23.0.2-macosx.zip
+ - wget http://dl.google.com/android/android-sdk_r24.0.2-macosx.zip
+ - unzip -qq -o android-sdk_r24.0.2-macosx.zip
  - ANDROID_HOME=${PWD}/android-sdk-macosx
  - titanium config android.sdkPath $ANDROID_HOME
 
