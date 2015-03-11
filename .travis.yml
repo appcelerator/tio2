@@ -9,7 +9,8 @@ install:
  - titanium login travisci@appcelerator.com travisci
  - titanium sdk install latest --no-progress-bars
 
- - export TRAVIS_USER=$TRAVIS_BUILD_DIR/..
+ - cd $TRAVIS_BUILD_DIR/..
+ - export TRAVIS_USER=$PWD
  - cd $TRAVIS_USER
  - echo $TRAVIS_USER
  - mkdir -p "$TRAVIS_USER/sdks/"
