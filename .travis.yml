@@ -9,10 +9,11 @@ install:
  - titanium login travisci@appcelerator.com travisci
  - titanium sdk install latest --no-progress-bars
 
- - export TITANIUM_ROOT=`ti sdk list -o json | jq -r '.defaultInstallLocation'`
- - mkdir -p "$TITANIUM_ROOT/sdks/"
+ - export TRAVIS_USER=$TRAVIS_BUILD_DIR/..
+ - cd $TRAVIS_USER
+ - mkdir -p "$TITANIUM_USER/sdks/"
 
- - cd "$TITANIUM_ROOT/sdks/"
+ - cd "$TITANIUM_USER/sdks/"
  - wget http://dl.google.com/android/android-sdk_r24.0.2-macosx.zip
  - unzip -qq -o android-sdk_r24.0.2-macosx.zip
  - ANDROID_HOME=${PWD}/android-sdk-macosx
