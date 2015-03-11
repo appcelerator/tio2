@@ -41,6 +41,8 @@ install:
  
  - emulator -avd test -no-skin -no-audio -no-window &
  
+ - cat ~/.titanium/config.json
+
  - npm install
 
 script:
