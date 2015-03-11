@@ -43,12 +43,12 @@ install:
 
 script:
 
- - ./bin/tio2 ./example --platform ios
+ - ./bin/tio2 ./example --platform ios --log-level debug
 
  - curl -o android_wait_for_emulator.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/android_wait_for_emulator.sh
  - source android_wait_for_emulator.sh
  - adb shell input keyevent 82 &
 
- - ./bin/tio2 ./example --platform android
+ - ./bin/tio2 ./example --platform android --log-level debug
 
 after_success:
