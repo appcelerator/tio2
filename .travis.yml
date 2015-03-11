@@ -1,7 +1,5 @@
 language: objective-c
 
-before_install:
-
 install:
 
  - # Need to install jq to process the JSON
