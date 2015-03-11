@@ -39,8 +39,6 @@ install:
  
  - emulator -avd test -no-skin -no-audio -no-window &
  
- - adb shell input keyevent 82 &
-
  - npm install
 
 script:
@@ -49,6 +47,7 @@ script:
 
  - curl -o android_wait_for_emulator.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/android_wait_for_emulator.sh
  - source android_wait_for_emulator.sh
+ - adb shell input keyevent 82 &
 
  - ./bin/tio2 ./example --platform android
 
