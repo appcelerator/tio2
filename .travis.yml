@@ -10,7 +10,7 @@ install:
  - titanium sdk install latest --no-progress-bars
 
  - cd $TRAVIS_BUILD_DIR/..
- - export TRAVIS_USER=$PWD
+ - export TRAVIS_USER=${PWD}
  - cd $TRAVIS_USER
  - echo $TRAVIS_USER
  - mkdir -p "$TRAVIS_USER/sdks/"
@@ -19,6 +19,7 @@ install:
  - wget http://dl.google.com/android/android-sdk_r24.0.2-macosx.zip
  - unzip -qq -o android-sdk_r24.0.2-macosx.zip
  - ANDROID_HOME=${PWD}/android-sdk-macosx
+ - ANDROID_SDK=$ANDROID_HOME
  - titanium config android.sdkPath $ANDROID_HOME
 
  - export ANDROID_HOME
