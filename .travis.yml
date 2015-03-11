@@ -38,8 +38,6 @@ install:
  - cd $TRAVIS_BUILD_DIR
  
  - emulator -avd test -no-skin -no-audio -no-window &
- - curl -o android_wait_for_emulator.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/android_wait_for_emulator.sh
- - source android_wait_for_emulator.sh
  
  - adb shell input keyevent 82 &
 
@@ -48,6 +46,10 @@ install:
 script:
 
  - ./bin/tio2 ./example --platform ios
+
+ - curl -o android_wait_for_emulator.sh https://raw.githubusercontent.com/appcelerator-modules/ci/master/travis/android_wait_for_emulator.sh
+ - source android_wait_for_emulator.sh
+
  - ./bin/tio2 ./example --platform android
 
 after_success:
