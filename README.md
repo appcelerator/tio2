@@ -51,18 +51,31 @@ sudo npm link
 
 ## Quick Start
 
-Create a `specs` folder in your Titanium app (at the same level as the `Resources` folder).  The spec should be in mocha format.
+Create a `suites` folder in your Titanium app (at the same level as the `Resources` folder), and then
+create multiple sub-folders there, each sub-folders must contain an `app.js` file, like:
 
-For example, really simple spec file:
 
-```javascript
-describe("Ti.UI",function(){
-    it("create empty view", function(){
-        var view = new Ti.UI.createView();
-        should(view).not.be.null;
-    });
-});
 ```
+\ my_titanium_folder
+|
+\-- suites
+    |
+    \-- test_main_page
+    |   |
+    |   \-- app.js
+    \-- test_sub_window
+        |
+        \-- app.js
+
+```
+
+at last, create an soft link for the titanium root folder:
+
+$ ln -s <your_titanium_root_path> harness
+
+For more examples , please refer to the `example` folder of this project.
+
+p.s. for Titanium 3.5 and Android, it won't work. Anyone who using IOS please have a test and help to complete this doc!
 
 ```bash
 # run the built-in example
